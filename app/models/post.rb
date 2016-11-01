@@ -27,8 +27,14 @@ class Post < ActiveRecord::Base
   scope :most_recent, ->{ order(published_at: :desc) }
   scope :published, ->{ where(published: true) }
 
+  before_create :published_at_to_now
+
   def should_generate_new_friendly_id?
   	title_changed?
+  end
+
+  def published_at_to_now
+    self.published_at = Time.now
   end
 
   def display_day_published
