@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <title><%= yield(:page_title)%> | ElonBlog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<%= render 'layouts/navbar' %>
+	<div class="container <%= controller_name %> <%= action_name %>">
+	  <%= yield %>
+	</div>
+
+</body>
+</html>

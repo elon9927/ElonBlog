@@ -1,0 +1,36 @@
+ <div class="row">
+   <div class="col-md-12">
+     <div class="card">
+
+         <ul class="list-group list-group-flush">
+
+          <li class="list-group-item">
+            <div class="field">
+              Commenter: <%= comment.commenter %>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="field">
+              Comment: <%= comment.content %>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="actions">
+              <%= link_to 'Destroy Comment', [comment.post, comment],
+                  method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+            </div>
+          </li>
+
+
+        </ul>
+     </div>
+   </div>
+ </div>
+
+
+
+
+
+

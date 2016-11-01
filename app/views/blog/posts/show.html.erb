@@ -1,0 +1,20 @@
+<% provide(:page_title, @post.title) %>
+<% provide(:blog_active, 'active') %>
+
+<div class="row">
+	<div class="col-md-10 offset-md-1 col-lg-8 offset-2 text-xs-center">
+		<h1><%= @post.title %></h1>
+		<p><%= @post.display_day_published %></p>
+	</div>
+	<div class="col-md-10 offset-md-1 col-lg-8 offset-2 text-xs-justify">
+		<%= @post.body.html_safe %>
+
+		<%= render @post.comments %>
+		<%= render "blog/comments/form" %>
+	</div>
+
+
+</div>
+<div>
+	<%= link_to 'Back', posts_path, class: 'btn btn-sm btn-info' %>
+</div>
