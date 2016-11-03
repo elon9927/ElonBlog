@@ -1,33 +1,24 @@
- <div class="row">
-   <div class="col-md-12">
-     <div class="card">
-
-         <ul class="list-group list-group-flush">
-
-          <li class="list-group-item">
-            <div class="field">
-              Commenter: <%= comment.commenter %>
-            </div>
-          </li>
-
-          <li class="list-group-item">
-            <div class="field">
-              Comment: <%= comment.content %>
-            </div>
-          </li>
-
-          <li class="list-group-item">
-            <div class="actions">
-              <%= link_to 'Destroy Comment', [comment.post, comment],
-                  method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
-            </div>
-          </li>
+<div class="media">
+  <a class="media-left" href="#">
+    <img class="media-object" src="http://imgsrc.baidu.com/forum/w=580/sign=95dbf196b67eca80120539efa1229712/22988a51f3deb48fab9ef66bf61f3a292cf57876.jpg" alt="photo">
+  </a>
+  <div class="media-body">
+    <h6 class="media-heading">#<%= comment.id %> <%= comment.commenter %><span> <%= Time.now.day%>days ago</span></h6>
+    <%= comment.content %>
 
 
-        </ul>
-     </div>
-   </div>
- </div>
+      <div class="actions">
+        <%= link_to 'Destroy', [comment.post, comment],
+             method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+
+  </div>
+</div>
+
+
+
+
+
 
 
 

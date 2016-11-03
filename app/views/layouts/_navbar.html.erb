@@ -54,6 +54,7 @@
 				<%= link_to 'Contact', contact_path, class: "nav-link #{yield(:contact_active)}"
 					%>
 			</li>
+
 			<% if author_signed_in? %>
 				<li class="nav-item">
 					<%= link_to 'My posts', authors_posts_path, class: "nav-link #{yield(:author)}"
@@ -69,5 +70,20 @@
 				</li>
 			<% end %>
 		</ul>
+
+  <form class="form-inline float-xs-right">
+    <input class="form-control" type="text" placeholder="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+
+
 	</div>
 </nav>
+
+<!-- 		<div class="form-inline float-xs-right">
+	<%= form_for(:post, url: posts_path) do |f| %>
+	<%= f.text_field :title, class: 'form-control', placeholder: "Search" %>
+	<%= f.submit "Search", class: 'btn btn-outline-success' %>
+  <% end %>
+</div>
+ -->

@@ -14,7 +14,13 @@
 	<div class="col-md-10 offset-md-1 col-lg-8 offset-2 text-xs-justify">
 		<%= @post.body.html_safe %>
 
-		<%= render @post.comments %>
+		<div class="row">
+	   	<div class="col-md-12">
+	    	<div class="card">
+					<%= render @post.comments %>
+				</div>
+		  </div>
+		</div>
 
 	</div>
 </div>

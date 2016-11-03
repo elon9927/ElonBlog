@@ -48,4 +48,13 @@ class Post < ActiveRecord::Base
   def unpublish
     update(published: false, published_at: Time.now)
   end
+
+=begin
+  def self.search_by_title(title)
+    str = title.strip
+    str2 = '%'+str+'%'
+    where(["title like ? and published = ?", str2, true])
+  end
+=end
+
 end
