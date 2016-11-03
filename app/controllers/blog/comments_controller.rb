@@ -1,5 +1,5 @@
 module Blog
-  class CommentsController < AuthorController
+  class CommentsController < CommentController
     before_action :find_post, only: [:create, :destroy]
 
     def show
