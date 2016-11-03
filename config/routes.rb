@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     get 'about' => 'pages#about', as: :about
     get 'contact' => 'pages#contact', as: :contact
     post 'search' => 'search#search', as: :search
-    get 'search' => 'search#search_show', as: :search
     resources :posts, only: [:show, :index] do
       resources :comments
     end

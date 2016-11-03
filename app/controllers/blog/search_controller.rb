@@ -13,9 +13,7 @@ module Blog
 	  	end
 		end
 
-		def search_show
 
-		end
 
 
 
