@@ -50,8 +50,8 @@ class Post < ActiveRecord::Base
   end
 
 
-  def self.search_by_title(title)
-    str = title.strip
+  def self.search_by_title(key)
+    str = key.strip
     str2 = '%'+str+'%'
     where(["title like ? and published = ?", str2, true])
   end

@@ -73,7 +73,7 @@
 
 
 		  <%= form_tag("/search", method: "post", class: "form-inline float-xs-right") do %>
-		  	<%= text_field_tag :title, nil, class: 'form-control', placeholder: "Search" %>
+		  	<%= text_field_tag :key, nil, class: 'form-control', placeholder: "Search Title" %>
 				<%= submit_tag "Search", class: 'btn btn-outline-success' %>
 
 		  <% end %>
