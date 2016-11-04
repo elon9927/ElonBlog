@@ -5,7 +5,11 @@ module Authors
 	  # GET /posts
 	  # GET /posts.json
 	  def index
-	    @posts = current_author.posts.most_recent
+	  	if current_author.admin?
+	  		@posts = Post.most_recent
+	  	else
+	    	@posts = current_author.posts.most_recent
+	    end
 	  end
 
 	  # GET /posts/1
@@ -74,7 +78,11 @@ module Authors
 	  private
 	    # Use callbacks to share common setup or constraints between actions.
 	    def set_post
-	      @post = current_author.posts.friendly.find(params[:id])
+	    	if current_author.admin?
+	    		 @post = Post.friendly.find(params[:id])
+    		else
+	      	 @post = current_author.posts.friendly.find(params[:id])
+      	end
 	    end
 
 	    # Never trust parameters from the scary internet, only allow the white list through.

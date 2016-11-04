@@ -7,7 +7,13 @@
     <%= comment.content %>
 
       <% if author_signed_in? %>
-        <% if current_author.email == comment.commenter %>
+        <% if current_author.admin? %>
+          <div class="actions">
+              <%= link_to 'Destroy', [comment.post, comment],
+                   method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+
+        <% elsif current_author.email == comment.commenter %>
 
             <div class="actions">
               <%= link_to 'Destroy', [comment.post, comment],
