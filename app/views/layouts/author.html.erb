@@ -11,13 +11,14 @@
 </head>
 <body>
 	<%= render 'layouts/navbar' %>
-	<% if notice || alert %>
-		<p class="notice"><%= notice %></p>
-	  <p class="alert"><%= alert %></p>
-	<% end %>
+
 	<div class="container <%= controller_name %> <%= action_name %>">
+		<% if notice || alert %>
+			<p class="notice"><%= notice %></p>
+		  <p class="alert"><%= alert %></p>
+		<% end %>
 	  <%= yield %>
 	</div>
-
+	<%= render 'layouts/footer' %>
 </body>
 </html>

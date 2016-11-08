@@ -56,14 +56,26 @@
 			</li>
 
 			<% if author_signed_in? %>
-				<li class="nav-item">
-					<%= link_to 'My posts', authors_posts_path, class: "nav-link #{yield(:author)}"
-						%>
-				</li>
-				<li class="nav-item">
-					<%= link_to 'Logout', destroy_author_session_path, method: :delete, class: "nav-link"
-						%>
-				</li>
+				<% if current_author.admin? %>
+					<li class="nav-item">
+						<%= link_to 'Admin', authors_posts_path, class: "nav-link #{yield(:author)}"
+							%>
+					</li>
+					<li class="nav-item">
+						<%= link_to 'Logout', destroy_author_session_path, method: :delete, class: "nav-link"
+							%>
+					</li>
+				<% else %>
+					<li class="nav-item">
+						<%= link_to 'My posts', authors_posts_path, class: "nav-link #{yield(:author)}"
+							%>
+					</li>
+					<li class="nav-item">
+						<%= link_to 'Logout', destroy_author_session_path, method: :delete, class: "nav-link"
+							%>
+					</li>
+				<% end %>
+
 			<% else %>
 				<li class="nav-item">
 					<%= link_to 'Login', new_author_session_path, class: "nav-link"	%>
@@ -73,7 +85,7 @@
 
 
 		  <%= form_tag("/search", method: "post", class: "form-inline float-xs-right") do %>
-		  	<%= text_field_tag :key, nil, class: 'form-control', placeholder: "Search Title" %>
+		  	<%= text_field_tag :key, nil, class: 'form-control', placeholder: "Search" %>
 				<%= submit_tag "Search", class: 'btn btn-outline-success' %>
 
 		  <% end %>

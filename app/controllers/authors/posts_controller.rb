@@ -6,9 +6,9 @@ module Authors
 	  # GET /posts.json
 	  def index
 	  	if current_author.admin?
-	  		@posts = Post.most_recent
+	  		@posts = Post.most_recent.page(params[:page]).per(5)
 	  	else
-	    	@posts = current_author.posts.most_recent
+	    	@posts = current_author.posts.most_recent.page(params[:page]).per(5)
 	    end
 	  end
 

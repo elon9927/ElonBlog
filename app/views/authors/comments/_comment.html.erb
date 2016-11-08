@@ -3,7 +3,10 @@
     <img class="media-object" src="http://imgsrc.baidu.com/forum/w=580/sign=95dbf196b67eca80120539efa1229712/22988a51f3deb48fab9ef66bf61f3a292cf57876.jpg" alt="photo">
   </a>
   <div class="media-body">
-    <h6 class="media-heading">#<%= comment.id %> <%= comment.commenter %><span> <%= Time.now.day%>days ago</span></h6>
+    <h6 class="media-heading">
+      #<% if !@post.comments.empty? %><%= comment.post.floor += 1 %><% end %>
+       <%= comment.commenter %><span> <%= Time.now.day%>days ago</span>
+    </h6>
     <%= comment.content %>
 
 

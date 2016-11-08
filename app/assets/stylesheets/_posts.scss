@@ -1,4 +1,4 @@
-.posts.index{
+.posts.index, .search.search{
 	.card{
 		border: none;
 		border-radius: 0;
@@ -72,21 +72,27 @@
 }
 
 @media screen and (min-width: 34em) {
-	.posts.index .card {
+	.posts.index, .search.search{
+		.card {
 		height: 440px;
+		}
 	}
 }
 
 /* Medium. Above 48em (768px) */
 @media screen and (min-width: 48em) {
-	.posts.index .card{
+	.posts.index, .search.search{
+	 .card{
 		height: 420px;
+		}
 	}
 }
 
 /* Extra large. Above 75em (1200px) */
 @media screen and (min-width: 75em) {
-	.posts.index .card{
+	.posts.index, .search.search{
+	 .card{
 		height: 415px;
+		}
 	}
 }

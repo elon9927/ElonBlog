@@ -17,6 +17,10 @@
 
 class Post < ActiveRecord::Base
 	extend FriendlyId
+
+  attr_accessor :floor
+  after_initialize :default_value
+
   friendly_id :title, use: :slugged
 
   validates :title, presence: true,
@@ -49,11 +53,20 @@ class Post < ActiveRecord::Base
     update(published: false, published_at: Time.now)
   end
 
+  def default_value
+
+     self.floor = 0
+
+  end
+
+
+
 
   def self.search_by_title(key)
     str = key.strip
     str2 = '%'+str+'%'
-    where(["title like ? and published = ?", str2, true])
+    where(["(title like ? or description like ?) and published = ?", str2, str2, true])
+    #where('(title like ? or description like ?) and published = ?', "%1%", '%1%', true)
   end
 
 

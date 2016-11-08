@@ -23,6 +23,12 @@ class Author < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         validates :name, presence:true
+         validates_uniqueness_of :name
+  #attr_accessor :email, :password, :password_confirmation, :remember_me, :name
+
   has_many :posts
   has_many :comments
+
+
 end
