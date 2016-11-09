@@ -2,7 +2,13 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-  <title><%= yield(:page_title)%> | ElonBlog</title>
+  <title>
+  	<% if yield(:page_title) != "" %>
+  		<%= yield(:page_title)%> | ElonBlog
+  	<% else %>
+  		ElonBlog
+  	<% end %>
+  </title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
