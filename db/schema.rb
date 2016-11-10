@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107172917) do
+ActiveRecord::Schema.define(version: 20161110152545) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -57,6 +57,13 @@ ActiveRecord::Schema.define(version: 20161107172917) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
+  create_table "photos", force: :cascade do |t|
+    t.integer  "post_id"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -68,6 +75,7 @@ ActiveRecord::Schema.define(version: 20161107172917) do
     t.integer  "author_id"
     t.boolean  "published",        default: false
     t.datetime "published_at"
+    t.string   "image"
   end
 
   add_index "posts", ["author_id"], name: "index_posts_on_author_id"

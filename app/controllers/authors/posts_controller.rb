@@ -20,6 +20,7 @@ module Authors
 	  # GET /posts/new
 	  def new
 	    @post = current_author.posts.new
+	    #@photo = current_author.posts.photos.new
 	  end
 
 	  # GET /posts/1/edit
@@ -39,6 +40,7 @@ module Authors
 	  # POST /posts.json
 	  def create
 	    @post = current_author.posts.new(post_params)
+	    #@post.banner_image_url = params[:file]
 
 	    respond_to do |format|
 	      if @post.save
@@ -87,7 +89,7 @@ module Authors
 
 	    # Never trust parameters from the scary internet, only allow the white list through.
 	    def post_params
-	      params.require(:post).permit(:title, :body, :description, :banner_image_url)
+	      params.require(:post).permit(:title, :body, :description, :banner_image_url, :image, :remote_image_url)
 	    end
 	end
 

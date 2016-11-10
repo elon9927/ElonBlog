@@ -13,6 +13,7 @@
 #  author_id        :integer
 #  published        :boolean          default(FALSE)
 #  published_at     :datetime
+#  image            :string
 #
 
 class Post < ActiveRecord::Base
@@ -28,6 +29,13 @@ class Post < ActiveRecord::Base
 
   belongs_to :author
   has_many :comments, dependent: :destroy
+
+  mount_uploader :image, ImageUploader
+
+  #has_many :photos, dependent: :destroy
+
+  #accepts_nested_attributes_for :photos
+
   scope :most_recent, ->{ order(published_at: :desc) }
   scope :published, ->{ where(published: true) }
 
