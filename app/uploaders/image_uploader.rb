@@ -32,9 +32,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :resize_to_fit => [50, 50]
-  # end
+  version :thumb do
+    process :resize_to_fit => [50, 50]
+  end
+=begin
   process resize_to_fit: [800, 800] #圖片上傳後，自動切成你要的size
 
   version :thumb do #設同時切其他size的版本-thumb
@@ -46,6 +47,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
     process resize_to_fill: [400,400]
   end
+=end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
